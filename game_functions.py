@@ -3,6 +3,7 @@ import pygame
 from bullet import Bullet
 from alien import Alien
 from time import sleep
+import sound
 
 
 def check_keydown_events(event, ai_settings, screen, ship, bullets):
@@ -24,6 +25,7 @@ def fire_bullet(ai_settings, screen, ship, bullets):
     if len(bullets) < ai_settings.bullets_allowed:
         new_bullet = Bullet(ai_settings, screen, ship)
         bullets.add(new_bullet)
+        sound.player_bullet_sound.play()
 
 
 def check_keyup_events(event, ship):
@@ -124,6 +126,7 @@ def check_bullet_alien_collisions(ai_settings, screen, stats, sb, ship, aliens, 
         for aliens in collisions.values():
             stats.score += ai_settings.alien_points * len(aliens)
             sb.prep_score()
+            sound.enemy_explosion_sound.play()
 
         check_high_score(stats, sb)
 
@@ -156,6 +159,7 @@ def update_aliens(ai_settings, screen, stats, sb, ship, aliens, bullets):
 
     # Look for alien-ship collisions
     if pygame.sprite.spritecollideany(ship, aliens):
+        sound.player_explosion_sound.play()
         ship_hit(ai_settings, screen, stats, sb, ship, aliens, bullets)
 
     # Look for aliens hitting the bottom of the screen

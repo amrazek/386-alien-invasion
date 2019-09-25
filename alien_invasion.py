@@ -6,15 +6,22 @@ from game_stats import GameStats
 from button import Button
 from scoreboard import Scoreboard
 import game_functions as gf
+import sound
+
+if pygame.mixer:
+    pygame.mixer.pre_init(22050, -16, 2, 1024)
 
 
 def run_game():
     # initialize pygame and create screen surface
     pygame.init()
+
     ai_settings = Settings()
     screen = pygame.display.set_mode((ai_settings.screen_width, ai_settings.screen_height))
 
     pygame.display.set_caption("Alien Invasion")
+
+    sound.init_sounds()
 
     # Make the play button
     play_button = Button(screen, "Play")
