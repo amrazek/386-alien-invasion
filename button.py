@@ -1,8 +1,8 @@
 import pygame.font
 
 
-class Button():
-    def __init__(self, ai_settings, screen, msg):
+class Button:
+    def __init__(self, screen, msg):
         """Initialize button attributes."""
         self.screen = screen
         self.screen_rect = screen.get_rect()
@@ -16,6 +16,10 @@ class Button():
         # Build the button's rect object and center it
         self.rect = pygame.Rect(0, 0, self.width, self.height)
         self.rect.center = self.screen_rect.center
+
+        # init variables to make PEP8 happy
+        self.msg_image = None
+        self.msg_image_rect = None
 
         # The button message needs to be prepped only once
         self.prep_msg(msg)

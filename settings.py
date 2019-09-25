@@ -27,6 +27,13 @@ class Settings:
         # How quickly alien point values increase
         self.score_scale = 1.5
 
+        # init vars to make PEP8 happy
+        self.ship_speed_factor = 1.5
+        self.bullet_speed_factor = 2
+        self.alien_speed_factor = 1
+        self.fleet_direction = 1
+        self.alien_points = 50
+
         self.initialize_dynamic_settings()
 
     def initialize_dynamic_settings(self):

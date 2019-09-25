@@ -1,4 +1,4 @@
-class GameStats():
+class GameStats:
     """Track statistics for Alien Invasion."""
 
     def __init__(self, ai_settings):
@@ -8,6 +8,9 @@ class GameStats():
 
         # Start Alien Invasion in an inactive state
         self.game_active = False
+
+        # init variables to make PEP8 happy
+        self.ships_left, self.score, self.level = 0, 0, 0
 
         # High score should never be reset
         self.high_score = 0

@@ -17,6 +17,15 @@ class Scoreboard:
         self.text_color = (30, 30, 30)
         self.font = pygame.font.SysFont(None, 48)
 
+        # init variables to make PEP8 happy
+        self.score_image = None
+        self.score_rect = None
+        self.high_score_image = None
+        self.high_score_rect = None
+        self.level_image = None
+        self.level_rect = None
+        self.ships = None
+
         # Prepare the initial score image
         self.prep_score()
         self.prep_high_score()

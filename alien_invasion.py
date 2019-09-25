@@ -1,4 +1,3 @@
-import sys
 import pygame
 from pygame.sprite import Group
 from settings import Settings
@@ -18,7 +17,7 @@ def run_game():
     pygame.display.set_caption("Alien Invasion")
 
     # Make the play button
-    play_button = Button(ai_settings, screen, "Play")
+    play_button = Button(screen, "Play")
 
     # Create an instance to store game statistics and create a scoreboard
     stats = GameStats(ai_settings)
